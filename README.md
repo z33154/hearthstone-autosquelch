@@ -15,7 +15,7 @@ It automatically squelches your opponent at the start of the match.
 Unzip Autosquelch.zip archive from [release] page to Plugins folder in root of your Hearthstone Deck Tracker.
 Then enable it in the Settings menu (described above).
 
-**If after copying the .dll file plugin does not appear in settings menu, go edit properties (right mouse click on dll -> Properties) and click "Unblock" button.**
+**If after copying the .dll file plugin does not appear in settings menu, go edit properties (right mouse click on dll -> Properties) check the "Unblock" check box and then hit Apply button.**
 
 ![Overlay](http://i.imgur.com/HEBhZ5A.png "Unblocking dll")
 
