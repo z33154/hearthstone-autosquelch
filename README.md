@@ -5,11 +5,11 @@ It automatically squelches your opponent at the start of the match.
 
 ## To enable:
 - Open HDT Options menu
-![Overlay](http://screencast.com/t/qy4i8ySEq6J "options")
+![Overlay](http://i.imgur.com/fKtphRe "options")
 - Select the Plugins tab
-![Overlay](http://screencast.com/t/sHQCbjYddqI "plugins")
+![Overlay](https://i.imgur.com/GImFnSF "plugins")
 - In the plugins list select the Autosquelch and then toggle the switch to enable it
-![Overlay](http://screencast.com/t/HqAtHZXuFli "autosquelch")
+![Overlay](https://i.imgur.com/lu3aNxH "autosquelch")
 
 ## Installation:
 Unzip Autosquelch.zip archive from [release] page to Plugins folder in root of your Hearthstone Deck Tracker.
