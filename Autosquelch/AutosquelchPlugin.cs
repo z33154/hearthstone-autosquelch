@@ -67,6 +67,8 @@ namespace Autosquelch
 
         private bool PluginRunning { get; set; }
 
+        private bool GameInProgress { get; set; }
+
         public void OnLoad()
         {
             Squelched = false;
@@ -79,6 +81,7 @@ namespace Autosquelch
             });
             GameEvents.OnTurnStart.Add(activePlayer =>
             {
+                GameInProgress = true;
                 if (!Squelched)
                 {
                     if (!User32.IsHearthstoneInForeground())
@@ -89,6 +92,10 @@ namespace Autosquelch
                     Squelched = true;
                     Task t = Squelch();
                 }
+            });
+            GameEvents.OnGameEnd.Add(() =>
+            {
+                GameInProgress = false;
             });
         }
 
@@ -124,8 +131,11 @@ namespace Autosquelch
             bool squelchBubbleVisible = false;
             do
             {
-                if (!PluginRunning)
+                if (!PluginRunning || !GameInProgress)
+                {
+                    Squelched = false;
                     return;
+                }
 
                 await MouseHelpers.ClickOnPoint(hearthstoneWindow, opponentHeroPosition, false);
 
