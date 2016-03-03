@@ -4,12 +4,12 @@ Autosquelch is a plugin for [Hearthstone Deck Tracker].
 It automatically squelches your opponent at the start of the match.
 
 ## To enable:
-- Open HDT Options menu
-![Overlay](http://i.imgur.com/fKtphRe.png "options")
-- Select the Plugins tab
-![Overlay](https://i.imgur.com/GImFnSF.png "plugins")
-- In the plugins list select the Autosquelch and then toggle the switch to enable it
-![Overlay](https://i.imgur.com/lu3aNxH.png "autosquelch")
+1. Open HDT Options menu
+2. Select the Plugins tab
+3. In the plugins list select the Autosquelch 
+4. Toggle the switch to enable plugin
+
+![Overlay](http://i.imgur.com/X0meykH.png "Enabling the plugin")
 
 ## Installation:
 Unzip Autosquelch.zip archive from [release] page to Plugins folder in root of your Hearthstone Deck Tracker.
