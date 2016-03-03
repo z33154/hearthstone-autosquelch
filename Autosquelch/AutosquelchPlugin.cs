@@ -1,5 +1,6 @@
 ﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.API;
+using Hearthstone_Deck_Tracker.Enums;
 using Hearthstone_Deck_Tracker.Exporting;
 using Hearthstone_Deck_Tracker.Plugins;
 using Hearthstone_Deck_Tracker.Utility;
@@ -67,7 +68,22 @@ namespace Autosquelch
 
         private bool PluginRunning { get; set; }
 
-        private bool GameInProgress { get; set; }
+        private bool GameInProgress
+        {
+            get
+            {
+                return Hearthstone_Deck_Tracker.API.Core.Game != null && Hearthstone_Deck_Tracker.API.Core.Game.IsRunning;
+            }
+        }
+
+        private bool OpponentIsSquelchable
+        {
+            get
+            {
+                return Hearthstone_Deck_Tracker.API.Core.Game.CurrentGameMode != GameMode.Practice
+                        && Hearthstone_Deck_Tracker.API.Core.Game.CurrentGameMode != GameMode.None;
+            }
+        }
 
         public void OnLoad()
         {
@@ -81,7 +97,6 @@ namespace Autosquelch
             });
             GameEvents.OnTurnStart.Add(activePlayer =>
             {
-                GameInProgress = true;
                 if (!Squelched)
                 {
                     if (!User32.IsHearthstoneInForeground())
@@ -89,13 +104,14 @@ namespace Autosquelch
                         return;
                     }
 
+                    if (!OpponentIsSquelchable)
+                    {
+                        return;
+                    }
+
                     Squelched = true;
                     Task t = Squelch();
                 }
-            });
-            GameEvents.OnGameEnd.Add(() =>
-            {
-                GameInProgress = false;
             });
         }
 
