@@ -65,9 +65,12 @@ namespace Autosquelch
 
         private bool Squelched { get; set; }
 
+        private bool PluginRunning { get; set; }
+
         public void OnLoad()
         {
             Squelched = false;
+            PluginRunning = true;
             var d = Config.Instance.DeckExportDelay;
 
             GameEvents.OnGameStart.Add(() =>
@@ -91,6 +94,7 @@ namespace Autosquelch
 
         public void OnUnload()
         {
+            PluginRunning = false;
         }
 
         public void OnUpdate()
@@ -120,6 +124,9 @@ namespace Autosquelch
             bool squelchBubbleVisible = false;
             do
             {
+                if (!PluginRunning)
+                    return;
+
                 await MouseHelpers.ClickOnPoint(hearthstoneWindow, opponentHeroPosition, false);
 
                 await Task.Delay(TimeSpan.FromMilliseconds(Config.Instance.DeckExportDelay * 4));
