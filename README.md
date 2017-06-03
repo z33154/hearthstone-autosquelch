@@ -1,3 +1,5 @@
+Original Author: https://github.com/ko-vasilev/hearthstone-autosquelch
+
 # Autosquelch
 
 Autosquelch is a plugin for [Hearthstone Deck Tracker].
@@ -20,4 +22,4 @@ Then enable it in the Settings menu (described above).
 ![Overlay](http://i.imgur.com/HEBhZ5A.png "Unblocking dll")
 
 [Hearthstone Deck Tracker]:https://github.com/Epix37/Hearthstone-Deck-Tracker
-[release]:https://github.com/ko-vasilev/hearthstone-autosquelch/releases/latest
+[release]:https://github.com/z33154/hearthstone-autosquelch/releases

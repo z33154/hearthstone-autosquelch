@@ -10,6 +10,8 @@ namespace Autosquelch
 {
     public class MouseHelpers
     {
+        private static byte DeckExportDelay = 60;
+
         public static async Task ClickOnPoint(IntPtr wndHandle, Point clientPoint, bool leftMouseButton)
         {
             ClientToScreen(wndHandle, ref clientPoint);
@@ -28,7 +30,7 @@ namespace Autosquelch
             else
                 mouse_event((uint)RightDown, 0, 0, 0, UIntPtr.Zero);
 
-            await Task.Delay(Config.Instance.DeckExportDelay);
+            await Task.Delay(DeckExportDelay);
 
             //mouse up
             if (leftMouseButton)
@@ -36,7 +38,7 @@ namespace Autosquelch
             else
                 mouse_event((uint)RightUp, 0, 0, 0, UIntPtr.Zero);
 
-            await Task.Delay(Config.Instance.DeckExportDelay);
+            await Task.Delay(DeckExportDelay);
         }
     }
 }
